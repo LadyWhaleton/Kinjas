@@ -3,8 +3,8 @@
 /*/
 
 # Inverse ignore some stuff
-!/Assets/
-!/ProjectSettings/
+!/Ninja/Assets/
+!/Ninja/ProjectSettings/
 !.gitignore
 
 # OS Stuff
