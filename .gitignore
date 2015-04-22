@@ -1,6 +1,6 @@
 # Ignore everything
-/*
-/*/
+/Ninja/*
+/Ninja/*/
 
 # Inverse ignore some stuff
 !/Ninja/Assets/
