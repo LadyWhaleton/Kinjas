@@ -25,10 +25,11 @@ public class ScrollController : MonoBehaviour {
 		if (goNextLevel){
 			if(Application.loadedLevelName == "Basic Test Lvl")
 				Application.LoadLevel("Level2");
-			else if(Application.loadedLevelName == "Level2"){
+			else if(Application.loadedLevelName == "Level2")
 				Application.LoadLevel("level3");
+			else if(Application.loadedLevelName == "level3")
+				Application.LoadLevel("Level4");
 
-			}
 		}
 	}
 
