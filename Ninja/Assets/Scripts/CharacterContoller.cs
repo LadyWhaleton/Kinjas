@@ -5,6 +5,8 @@ public class CharacterContoller : MonoBehaviour {
 
 	public float Movespeed;
 	public float jumpForce;
+
+
 	private bool grounded = false;
 	private Animator anim;
 	private bool jump = false;
@@ -13,7 +15,8 @@ public class CharacterContoller : MonoBehaviour {
 	private float h;
 	private bool touchedScroll = false;
 
-	public GameObject poofObj; 
+	private float timer= 0;
+
 
 
 	void Awake(){
@@ -29,6 +32,15 @@ public class CharacterContoller : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		if (touchedScroll) {
+
+			timer+=Time.deltaTime; 
+
+			if(timer >= .75){
+				Destroy(this.gameObject);
+			}
+		} 
+
 		// GetComponent<Rigidbody2D>().velocity.
 		if (!grounded && Mathf.Abs( GetComponent<Rigidbody2D>().velocity.y )<= 0.05f)
 		{
@@ -42,12 +54,17 @@ public class CharacterContoller : MonoBehaviour {
 			jump = true;
 		}
 
+
+
 	}
 
+
 	void flip(){
-		Vector3 theScale = transform.localScale;
-		theScale.x *= -1;
-		transform.localScale = theScale;
+		if (!touchedScroll) {
+			Vector3 theScale = transform.localScale;
+			theScale.x *= -1;
+			transform.localScale = theScale;
+		}
 
 	}
 
@@ -96,7 +113,10 @@ public class CharacterContoller : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D coll) {
 		if (coll.gameObject.tag == "scroll") {
-			Destroy (this.gameObject);
+			anim.SetBool ("touchScroll", true);
+			touchedScroll = true;
+			GetComponent<Rigidbody2D>().isKinematic = true;
+
 		}
 	}
 
