@@ -11,7 +11,6 @@ public class CharacterContoller : MonoBehaviour {
 	private Animator anim;
 	private bool jump = false;
 	private bool facingRight = true;
-	private bool dying = true;
 	private float h;
 	private bool touchedScroll = false;
 
