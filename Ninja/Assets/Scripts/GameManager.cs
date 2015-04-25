@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		points = 0;
+		Cursor.visible = true;
 	}
 	
 	// Update is called once per frame
