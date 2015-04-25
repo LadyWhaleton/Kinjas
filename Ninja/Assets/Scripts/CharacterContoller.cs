@@ -38,6 +38,7 @@ public class CharacterContoller : MonoBehaviour {
 
 			if(timer >= .75){
 				Destroy(this.gameObject);
+				timer = 0;
 			}
 		} 
 
