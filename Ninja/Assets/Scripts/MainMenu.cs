@@ -16,6 +16,11 @@ public class MainMenu : MonoBehaviour {
 
 	public void Tutorial ()
 	{
+		Application.LoadLevel ("Tutorial");
+	}
 
+	public void Credits ()
+	{
+		Application.LoadLevel ("Credits");
 	}
 }

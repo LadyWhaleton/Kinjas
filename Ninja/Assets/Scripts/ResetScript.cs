@@ -17,8 +17,7 @@ public class ResetScript : MonoBehaviour {
 		else if (Input.GetKeyDown ("t"))
 			Application.LoadLevel ("Level1");
 		else if (Input.GetKey ("q")) {
-			Debug.Log("Quitting game.");
-			Application.Quit ();
+			Application.LoadLevel ("SimpleMainMenu");
 		}
 	
 	}
