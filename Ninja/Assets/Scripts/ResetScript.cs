@@ -14,8 +14,6 @@ public class ResetScript : MonoBehaviour {
 		if (Input.GetKeyDown ("r"))
 			//print ("reset");
 			Application.LoadLevel (Application.loadedLevelName);
-		else if (Input.GetKeyDown ("t"))
-			Application.LoadLevel ("Level1");
 		else if (Input.GetKey ("q")) {
 			Application.LoadLevel ("SimpleMainMenu");
 		}
