@@ -14,6 +14,8 @@ public class CharacterContoller : MonoBehaviour {
 	private float h;
 	private bool touchedScroll = false;
 
+	private bool disableControl = false;
+
 	private float timer= 0;
 
 
@@ -68,43 +70,44 @@ public class CharacterContoller : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
-		h = Input.GetAxis ("Horizontal");
-		if (!touchedScroll) {
-		
+	
+		if (!disableControl) {
 
-			transform.Translate (Vector3.right * h * Movespeed * Time.deltaTime);
-
-		}
-
-		if (h > 0) { 
-			anim.SetFloat ("speed", 1);
-			if(!facingRight){
-				facingRight = true;
-				flip ();
+			h = Input.GetAxis ("Horizontal");
+			if (!touchedScroll) {
+				transform.Translate (Vector3.right * h * Movespeed * Time.deltaTime);
 			}
 
-		}
-		if (h < 0) {
-			anim.SetFloat ("speed", -1);
+			if (h > 0) { 
+				anim.SetFloat ("speed", 1);
+				if (!facingRight) {
+					facingRight = true;
+					flip ();
+				}
 
-			if (facingRight) {
-				facingRight = false;
-				flip ();
 			}
-		}
+			if (h < 0) {
+				anim.SetFloat ("speed", -1);
 
-		if (h == 0) {
-			anim.SetFloat ("speed", 0);
-		}
+				if (facingRight) {
+					facingRight = false;
+					flip ();
+				}
+			}
+
+			if (h == 0) {
+				anim.SetFloat ("speed", 0);
+			}
 
 
-		if (jump) {
+			if (jump) {
 
-			GetComponent<AudioSource>().Play();
-			anim.SetBool ("PressJump", true);
-			GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce ));
-			jump = false;
-			grounded = false;
+				GetComponent<AudioSource> ().Play ();
+				anim.SetBool ("PressJump", true);
+				GetComponent<Rigidbody2D> ().AddForce (new Vector2 (0f, jumpForce));
+				jump = false;
+				grounded = false;
+			}
 		}
 	}
 	
@@ -114,12 +117,15 @@ public class CharacterContoller : MonoBehaviour {
 		if (coll.gameObject.tag == "scroll") {
 			anim.SetBool ("touchScroll", true);
 			touchedScroll = true;
-			GetComponent<Rigidbody2D>().isKinematic = true;
-
+			GetComponent<Rigidbody2D> ().isKinematic = true;
+		} 
+		else if (coll.gameObject.tag == "hazard") {
+			//anim.SetBool ("death" , true);
+			print("collide");
+			transform.Rotate(Vector3.forward * 45);
+			disableControl = true;
 		}
+
+
 	}
-
-
-
-
 }
