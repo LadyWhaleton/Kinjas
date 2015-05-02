@@ -122,7 +122,7 @@ public class CharacterContoller : MonoBehaviour {
 		else if (coll.gameObject.tag == "hazard") {
 			//anim.SetBool ("death" , true);
 			print("collide");
-			transform.Rotate(Vector3.forward * 45);
+			transform.Rotate(Vector3.forward );
 			disableControl = true;
 		}
 
