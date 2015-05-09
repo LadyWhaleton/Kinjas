@@ -29,6 +29,8 @@ public class ScrollController : MonoBehaviour {
 				Application.LoadLevel("level3");
 			else if(Application.loadedLevelName == "level3")
 				Application.LoadLevel("Level4");
+			else if (Application.loadedLevelName == "Level4")
+				Application.LoadLevel("TempEndScreen");
 
 		}
 	}
