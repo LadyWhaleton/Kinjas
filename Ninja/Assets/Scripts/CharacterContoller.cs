@@ -27,20 +27,15 @@ public class CharacterContoller : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 	
+	}
 
+
+	public void Die(){
+		Destroy (this.gameObject);
 	}
 
 	// Update is called once per frame
 	void Update () {
-
-		if (touchedScroll) {
-
-			timer+=Time.deltaTime; 
-
-			if(timer >= .75){
-				Destroy(this.gameObject);
-			}
-		} 
 
 		// GetComponent<Rigidbody2D>().velocity.
 		if (!grounded && Mathf.Abs( GetComponent<Rigidbody2D>().velocity.y )<= 0.05f)
@@ -48,15 +43,13 @@ public class CharacterContoller : MonoBehaviour {
 			grounded = true;
 			anim.SetBool ("PressJump", false);
 
-
 		}
 
 		if( Input.GetButtonDown( "Jump" ) && grounded  ){
 			jump = true;
 		}
 
-
-
+	
 	}
 
 
@@ -99,7 +92,6 @@ public class CharacterContoller : MonoBehaviour {
 				anim.SetFloat ("speed", 0);
 			}
 
-
 			if (jump) {
 
 				GetComponent<AudioSource> ().Play ();
@@ -110,8 +102,6 @@ public class CharacterContoller : MonoBehaviour {
 			}
 		}
 	}
-	
-
 
 	void OnCollisionEnter2D(Collision2D coll) {
 		if (coll.gameObject.tag == "scroll") {
