@@ -45,7 +45,7 @@ public class CharacterContoller : MonoBehaviour {
 
 		}
 
-		if( Input.GetButtonDown( "Jump" ) && grounded  ){
+		if( (Input.GetButtonDown( "Jump" ) || Input.GetAxis ("Vertical") > 0) && grounded  ){
 			jump = true;
 		}
 
