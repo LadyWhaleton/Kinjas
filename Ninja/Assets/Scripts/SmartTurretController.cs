@@ -14,17 +14,24 @@ public class SmartTurretController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		// why does our object rotate only when the code is placed outside of the if-statement??
 		if (target) {
+			// why does our object rotate only when the code is placed outside of the if-statement??
 			Debug.Log ("Smart Turret found a Ninja!");
-
-			// LockOnPlayer();
-
-
+			LockOnPlayer();
 		}
+
+
 	
 	}
 
+	void OnTriggerEnter2D (Collider2D col){
+		if (target == null && col.gameObject.tag == "ninja") {
+			target = col.transform;
+			Debug.Log ("Ninja in range");
+		}
+	}
+
+	
 	void LockOnPlayer ()
 	{
 
