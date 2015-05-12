@@ -9,6 +9,7 @@
 !/Ninja/Assets/
 !/Ninja/ProjectSettings/
 !.gitignore
+!/Ninja/Documents
 
 # OS Stuff
 .DS_Store
