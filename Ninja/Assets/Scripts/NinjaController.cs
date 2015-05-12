@@ -7,7 +7,7 @@ public class NinjaController : MonoBehaviour {
 	private float jumpForce = 300;
 	
 	private Animator anim;
-	private SpriteRenderer renderer;
+	private SpriteRenderer NinjaSprite;
 	
 	private GameObject NinjaAniGO;
 	private NinjaAnimation NinjaAniScript;
@@ -24,7 +24,7 @@ public class NinjaController : MonoBehaviour {
 	
 	void Awake(){
 		anim = GetComponent<Animator> (); 
-		renderer = GetComponent<SpriteRenderer> ();
+		NinjaSprite = GetComponent<SpriteRenderer> ();
 		
 		// get child information
 		Transform childTransform = transform.FindChild ("NinjaAni");
@@ -40,6 +40,14 @@ public class NinjaController : MonoBehaviour {
 	
 	public void Die(){
 		Destroy (this.gameObject);
+	}
+
+	public void setGrounded (bool val){
+		grounded = val;
+	}
+
+	public void setJump (bool val) {
+		jump = val;
 	}
 	
 	void checkFlip (float direction) {
@@ -58,17 +66,22 @@ public class NinjaController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-		// GetComponent<Rigidbody2D>().velocity.
+
+		if (isDead)
+			return;
+		/*
 		if (!grounded && Mathf.Abs( GetComponent<Rigidbody2D>().velocity.y )<= 0.05f)
 		{
 			grounded = true;
 			anim.SetBool ("PressJump", false);
 			
 		}
-		
-		if( (Input.GetButtonDown( "Jump" ) || Input.GetAxis ("Vertical") > 0) && grounded  ){
+		*/
+
+		//Input.GetAxis ("Vertical") > 0
+		if(grounded && (Input.GetButtonDown( "Jump" ) || Input.GetKeyDown ("up"))){
 			jump = true;
+			anim.SetBool ("PressJump", true);
 		}
 		
 		
@@ -100,12 +113,11 @@ public class NinjaController : MonoBehaviour {
 		}
 		
 		if (jump) {
-			
 			GetComponent<AudioSource> ().Play ();
 			anim.SetBool ("PressJump", true);
-			GetComponent<Rigidbody2D> ().AddForce (new Vector2 (0f, jumpForce));
-			jump = false;
-			grounded = false;
+			//GetComponent<Rigidbody2D> ().AddForce (new Vector2 (0f, jumpForce));
+			GetComponent<Rigidbody2D>().AddForce(Vector3.up * jumpForce);
+
 		}
 	}
 	
@@ -116,13 +128,15 @@ public class NinjaController : MonoBehaviour {
 			isDead = true;
 			GetComponent<BoxCollider2D> ().enabled = false;
 			GetComponent<Rigidbody2D> ().isKinematic = true;
-		} else if (coll.gameObject.tag == "hazard") {
+		} 
+
+		else if (coll.gameObject.tag == "hazard") {
 			Debug.Log ("FATALITY!");
 			
 			// disable movement and controls, hide Ninja
 			isDead = true;
 			anim.SetBool ("goDead", true);
-			renderer.enabled = false;
+			NinjaSprite.enabled = false;
 			GetComponent<BoxCollider2D> ().enabled = false;
 			GetComponent<Rigidbody2D> ().isKinematic = true;
 			
