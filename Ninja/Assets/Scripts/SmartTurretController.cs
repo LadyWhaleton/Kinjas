@@ -5,6 +5,8 @@ public class SmartTurretController : MonoBehaviour {
 
 	// this is which Ninja the turret is gonna rotate towards
 	protected Transform target;
+	Vector3 targetDirection;
+	float targetAngle;
 
 	// Use this for initialization
 	void Start () {
@@ -25,22 +27,23 @@ public class SmartTurretController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D (Collider2D col){
-		if (target == null && col.gameObject.tag == "ninja") {
+		if (col.gameObject.tag == "ninja") {
 			target = col.transform;
 			Debug.Log ("Ninja in range");
 		}
 	}
 
+	void OnTriggerExit2D (Collider2D col){
+			target = null;
+			Debug.Log ("Ninja is out of range");
+		}
+
+
 	
 	void LockOnPlayer ()
 	{
-
-		// Delays the turret rotation so it doesn't freak out whenever the player moves
-		Quaternion rotation = Quaternion.LookRotation (target.transform.position - transform.position);
-		transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 10);
-
-		transform.LookAt (target.transform);
-
-
+		targetDirection = target.position - transform.position;
+		targetAngle = Mathf.Atan2 (targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
+		transform.rotation = Quaternion.AngleAxis (targetAngle, Vector3.forward);
 	}
 }
