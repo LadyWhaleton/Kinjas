@@ -5,7 +5,7 @@ public class NinjaAnimation : MonoBehaviour {
 
 	// my properties
 	private Animator anim;
-	private SpriteRenderer renderer;
+	private SpriteRenderer NinjaAniSprite;
 
 	private bool isDead;
 
@@ -13,12 +13,11 @@ public class NinjaAnimation : MonoBehaviour {
 	private NinjaController parentScript;
 	
 	void Awake (){
-		renderer = GetComponent<SpriteRenderer> ();
+		NinjaAniSprite = GetComponent<SpriteRenderer> ();
 
-		if (renderer.enabled)
-			renderer.enabled = false;
-
-
+		if (NinjaAniSprite.enabled)
+			NinjaAniSprite.enabled = false;
+	
 		anim = GetComponent<Animator> ();
 
 
@@ -37,11 +36,11 @@ public class NinjaAnimation : MonoBehaviour {
 	
 
 	void showAnimation(){
-		renderer.enabled = true;
+		NinjaAniSprite.enabled = true;
 	}
 
 	void hideAnimation(){
-		renderer.enabled = false;
+		NinjaAniSprite.enabled = false;
 	}
 
 	public void Die()
