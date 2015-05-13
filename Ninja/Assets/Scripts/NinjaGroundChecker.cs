@@ -13,12 +13,14 @@ public class NinjaGroundChecker : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D col) {
-		if (col.gameObject.tag == "ground") {
+		// revert Ninja back to idle animation
+		if (col.gameObject.tag == "ground" || col.gameObject.tag == "ninja"){
 			anim.SetBool ("PressJump", false);
 		}
 	}
 
 	void OnTriggerStay2D(Collider2D col) {
+		// set flag for grounded
 		if (col.gameObject.tag == "ground") {
 			parentScript.setGrounded(true);
 			//parentScript.setJump(false);
@@ -27,10 +29,10 @@ public class NinjaGroundChecker : MonoBehaviour {
 
 
 	void OnTriggerExit2D (Collider2D col){
+		// Set flags for Ninja no longer grounded
 		if (col.gameObject.tag == "ground") {
 			parentScript.setJump (false);
 			parentScript.setGrounded (false);
-			//anim.SetBool ("PressJump", true);
 		}
 
 	}
