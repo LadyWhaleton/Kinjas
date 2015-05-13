@@ -18,6 +18,8 @@ public class NinjaController : MonoBehaviour {
 	// character movement control
 	private bool grounded = false;
 	private bool jump = false;
+	private float jumpDelay = 0;
+
 	private bool facingRight = true;
 	private float h;
 	
@@ -69,19 +71,23 @@ public class NinjaController : MonoBehaviour {
 
 		if (isDead)
 			return;
-		/*
-		if (!grounded && Mathf.Abs( GetComponent<Rigidbody2D>().velocity.y )<= 0.05f)
-		{
-			grounded = true;
-			anim.SetBool ("PressJump", false);
-			
-		}
-		*/
+
+		if (jumpDelay > 0)
+			jumpDelay -= Time.deltaTime;
 
 		//Input.GetAxis ("Vertical") > 0
 		if(grounded && (Input.GetButtonDown( "Jump" ) || Input.GetKeyDown ("up"))){
 			jump = true;
 			anim.SetBool ("PressJump", true);
+		}
+
+		if (jump && jumpDelay <= 0) {
+			jumpDelay = 0.5f;
+			GetComponent<AudioSource> ().Play ();
+			//anim.SetBool ("PressJump", true);
+			GetComponent<Rigidbody2D> ().AddForce (new Vector2 (0f, jumpForce));
+			//GetComponent<Rigidbody2D>().AddForce(Vector3.up * jumpForce);
+			
 		}
 		
 		
@@ -111,14 +117,7 @@ public class NinjaController : MonoBehaviour {
 		if (h == 0) {
 			anim.SetFloat ("speed", 0);
 		}
-		
-		if (jump) {
-			GetComponent<AudioSource> ().Play ();
-			anim.SetBool ("PressJump", true);
-			//GetComponent<Rigidbody2D> ().AddForce (new Vector2 (0f, jumpForce));
-			GetComponent<Rigidbody2D>().AddForce(Vector3.up * jumpForce);
 
-		}
 	}
 	
 	

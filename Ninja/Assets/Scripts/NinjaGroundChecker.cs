@@ -21,7 +21,7 @@ public class NinjaGroundChecker : MonoBehaviour {
 	void OnTriggerStay2D(Collider2D col) {
 		if (col.gameObject.tag == "ground") {
 			parentScript.setGrounded(true);
-			parentScript.setJump(false);
+			//parentScript.setJump(false);
 		}
 	}
 
@@ -30,7 +30,7 @@ public class NinjaGroundChecker : MonoBehaviour {
 		if (col.gameObject.tag == "ground") {
 			parentScript.setJump (false);
 			parentScript.setGrounded (false);
-			anim.SetBool ("PressJump", true);
+			//anim.SetBool ("PressJump", true);
 		}
 
 	}
