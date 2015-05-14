@@ -19,8 +19,11 @@ public class SmartTurretController : MonoBehaviour {
 		if (target) {
 			// why does our object rotate only when the code is placed outside of the if-statement??
 			Debug.Log ("Smart Turret found a Ninja!");
-			LockOnPlayer();
-		}
+			LockOnPlayer ();
+		} 
+
+			transform.Rotate(Vector3.forward * Time.deltaTime * 10, Space.World);
+	
 
 
 	
