@@ -21,9 +21,10 @@ public class SmartTurretController : MonoBehaviour {
 			Debug.Log ("Smart Turret found a Ninja!");
 			LockOnPlayer ();
 		} 
+		else {
 
-			transform.Rotate(Vector3.forward * Time.deltaTime * 10, Space.World);
-	
+			transform.Rotate (Vector3.forward * Time.deltaTime * 10, Space.World);
+		}
 
 
 	
