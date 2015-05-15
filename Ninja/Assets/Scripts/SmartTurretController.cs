@@ -2,11 +2,10 @@
 using System.Collections;
 
 public class SmartTurretController : MonoBehaviour {
-
 	// this is which Ninja the turret is gonna rotate towards
-	protected Transform target;
 	Vector3 targetDirection;
 	float targetAngle;
+	public Transform target;
 
 	// Use this for initialization
 	void Start () {
@@ -16,7 +15,7 @@ public class SmartTurretController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (target) {
+		if (target ) {
 			// why does our object rotate only when the code is placed outside of the if-statement??
 			Debug.Log ("Smart Turret found a Ninja!");
 			LockOnPlayer ();
@@ -25,25 +24,7 @@ public class SmartTurretController : MonoBehaviour {
 
 			transform.Rotate (Vector3.forward * Time.deltaTime * 10, Space.World);
 		}
-
-
-	
 	}
-
-	void OnTriggerEnter2D (Collider2D col){
-		if (col.gameObject.tag == "ninja") {
-			target = col.transform;
-			Debug.Log ("Ninja in range");
-		}
-	}
-
-	void OnTriggerExit2D (Collider2D col){
-			target = null;
-			Debug.Log ("Ninja is out of range");
-		}
-
-
-	
 	void LockOnPlayer ()
 	{
 		targetDirection = target.position - transform.position;
