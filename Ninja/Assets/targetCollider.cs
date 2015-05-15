@@ -2,16 +2,16 @@
 using System.Collections;
 
 public class targetCollider : MonoBehaviour {
-	Transform barrel;
-	SmartTurretController SMT;
+	GameObject barrel;
+	public SmartTurretController SMT;
 
 	void start(){
-		barrel = GameObject.FindWithTag ("barrel").transform;
+		barrel = GameObject.FindWithTag ("barrel");
 		SMT = barrel.GetComponent< SmartTurretController> ();
 	}
 
 	void OnTriggerEnter2D (Collider2D col){
-		if (col.gameObject.tag == "ninja" && SMT) {
+		if (col.gameObject.tag == "ninja" ) {
 			Debug.Log ("Ninja in range");
 			SMT.target = col.transform;
 		}
