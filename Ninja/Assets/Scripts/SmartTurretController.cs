@@ -6,6 +6,7 @@ public class SmartTurretController : MonoBehaviour {
 	Vector3 targetDirection;
 	float targetAngle;
 	public Transform target;
+	public float rotationSpeed ; 
 
 	// Use this for initialization
 	void Start () {
@@ -21,8 +22,7 @@ public class SmartTurretController : MonoBehaviour {
 			LockOnPlayer ();
 		} 
 		else {
-
-			transform.Rotate (Vector3.forward * Time.deltaTime * 10, Space.World);
+			idleRotate();
 		}
 	}
 	void LockOnPlayer ()
@@ -30,5 +30,13 @@ public class SmartTurretController : MonoBehaviour {
 		targetDirection = target.position - transform.position;
 		targetAngle = Mathf.Atan2 (targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
 		transform.rotation = Quaternion.AngleAxis (targetAngle, Vector3.forward);
+	}
+
+	void idleRotate(){
+		transform.Rotate (Vector3.forward * Time.deltaTime * rotationSpeed, Space.World);
+
+		if (transform.rotation.eulerAngles == new Vector3( 0, 0, 90) ){
+			rotationSpeed = -rotationSpeed;
+		}
 	}
 }
