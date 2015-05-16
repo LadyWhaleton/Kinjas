@@ -23,7 +23,7 @@ public class NinjaGroundChecker : MonoBehaviour {
 		// set flag for grounded
 		if (col.gameObject.tag == "ground" || col.gameObject.tag == "ninjaHead") {
 			parentScript.setGrounded(true);
-			//parentScript.setJump(false);
+			anim.SetBool ("PressJump", false);
 		}
 	}
 
