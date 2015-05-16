@@ -23,7 +23,9 @@ public class NinjaController : MonoBehaviour {
 	private bool facingRight = true;
 	private float h;
 	
-	
+	// stuff for other Ninja
+	public NinjaController NinjaOnTop;
+
 	void Awake(){
 		anim = GetComponent<Animator> (); 
 		NinjaSprite = GetComponent<SpriteRenderer> ();
@@ -32,12 +34,13 @@ public class NinjaController : MonoBehaviour {
 		Transform childTransform = transform.FindChild ("NinjaAni");
 		NinjaAniGO = childTransform.gameObject;
 		NinjaAniScript = NinjaAniGO.GetComponent<NinjaAnimation> ();
+
+		NinjaOnTop = null;
 		
 	}
 	
 	// Use this for initialization
 	void Start () {
-		
 	}
 	
 	public void Die(){
@@ -51,6 +54,14 @@ public class NinjaController : MonoBehaviour {
 	public void setJump (bool val) {
 		jump = val;
 	}
+
+	public void setJumpDelay (float val){
+		jumpDelay = val;
+	}
+
+	public void setNinjaOnTop (NinjaController otherNinjaScript){
+		NinjaOnTop = otherNinjaScript;
+	}
 	
 	void checkFlip (float direction) {
 		if ( (direction > 0 && !facingRight) || direction < 0 && facingRight) {
@@ -58,7 +69,11 @@ public class NinjaController : MonoBehaviour {
 			flip ();
 		}
 	}
-	
+
+	bool checkPressJump(){
+		return Input.GetButtonDown( "Jump" ) || Input.GetKeyDown ("up") || Input.GetKeyDown("w");
+	}
+
 	void flip(){
 		
 		Vector3 theScale = transform.localScale;
@@ -76,15 +91,15 @@ public class NinjaController : MonoBehaviour {
 			jumpDelay -= Time.deltaTime;
 
 		//Input.GetAxis ("Vertical") > 0
-		if(grounded && (Input.GetButtonDown( "Jump" ) || Input.GetKeyDown ("up"))){
+		if(grounded && checkPressJump() && jumpDelay <= 0 && !NinjaOnTop) {
 			jump = true;
-			anim.SetBool ("PressJump", true);
 		}
 
-		if (jump && jumpDelay <= 0) {
-			jumpDelay = 0.5f;
+		if (jump) {
+			jump = false;
+			setJumpDelay(.5f);
 			GetComponent<AudioSource> ().Play ();
-			//anim.SetBool ("PressJump", true);
+			anim.SetBool ("PressJump", true);
 			GetComponent<Rigidbody2D> ().AddForce (new Vector2 (0f, jumpForce));
 			//GetComponent<Rigidbody2D>().AddForce(Vector3.up * jumpForce);
 			
