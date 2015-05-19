@@ -1,42 +1,42 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &130902
+--- !u!1 &184264
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 487100}
-  - 212: {fileID: 21234898}
-  - 60: {fileID: 6057916}
-  - 114: {fileID: 11463964}
-  - 50: {fileID: 5037340}
+  - 4: {fileID: 419858}
+  - 212: {fileID: 21215020}
+  - 50: {fileID: 5077124}
+  - 60: {fileID: 6005268}
+  - 114: {fileID: 11475646}
   m_Layer: 9
-  m_Name: shuriken
+  m_Name: lemon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &487100
+--- !u!4 &419858
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 130902}
+  m_GameObject: {fileID: 184264}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.10660577, y: -1.85458457, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -5.12102747, y: -1.24271381, z: 0}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!50 &5037340
+--- !u!50 &5077124
 Rigidbody2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 130902}
+  m_GameObject: {fileID: 184264}
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
@@ -46,12 +46,12 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
---- !u!60 &6057916
+--- !u!60 &6005268
 PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 130902}
+  m_GameObject: {fileID: 184264}
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -59,31 +59,31 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Points:
     m_Paths:
-    - - {x: -.159999996, y: .159999996}
-      - {x: -.159999996, y: -.159999996}
-      - {x: .159999996, y: -.159999996}
-      - {x: .159999996, y: .159999996}
---- !u!114 &11463964
+    - - {x: -.0399999991, y: .0299999993}
+      - {x: -.0399999991, y: -.0299999993}
+      - {x: .0399999991, y: -.0299999993}
+      - {x: .0399999991, y: .0299999993}
+--- !u!114 &11475646
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 130902}
+  m_GameObject: {fileID: 184264}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4cd1898a5e33f484bbd27463bd7d5b39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 400
+  rotateSpeed: 0
   shurikenSpeed: 800
   controller: {fileID: 0}
-  n: {fileID: 0}
---- !u!212 &21234898
+  n: {fileID: 112032, guid: dbc0b21482635f94db5d174c63563737, type: 2}
+--- !u!212 &21215020
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 130902}
+  m_GameObject: {fileID: 184264}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -102,7 +102,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 01621cf5161aec64bb04a93b70a4ed79, type: 3}
+  m_Sprite: {fileID: 21300190, guid: 386d869a5f277ee4fa068a254a2f974d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
@@ -113,5 +113,5 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 130902}
+  m_RootGameObject: {fileID: 184264}
   m_IsPrefabParent: 1

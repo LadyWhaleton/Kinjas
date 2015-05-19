@@ -37,7 +37,7 @@ public class SmartTurretController : MonoBehaviour {
 
 	void idleRotate(){
 		transform.Rotate (Vector3.forward * Time.deltaTime * rotationSpeed, Space.World);
-
+		
 		if (transform.rotation.eulerAngles.z > 359 || transform.rotation.eulerAngles.z < 180){
 			Debug.Log ("sdfs");
 			rotationSpeed = -rotationSpeed;
