@@ -20,7 +20,7 @@ public class NinjaController : MonoBehaviour {
 	private bool jump = false;
 	private float jumpDelay = 0;
 
-	private bool facingRight = true;
+	public bool facingRight ;
 	private float h;
 	
 	// stuff for other Ninja
@@ -36,6 +36,7 @@ public class NinjaController : MonoBehaviour {
 		NinjaAniScript = NinjaAniGO.GetComponent<NinjaAnimation> ();
 
 		NinjaOnTop = null;
+		facingRight = true;
 		
 	}
 	
