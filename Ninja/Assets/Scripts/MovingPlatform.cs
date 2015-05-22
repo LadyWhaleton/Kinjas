@@ -14,8 +14,6 @@ public class MovingPlatform : MonoBehaviour {
 	private Transform destination;
 	private Vector3 direction; // indicates which way the platform should move
 
-	private int currState;	// state indicates where platform will move
-
 	void Awake(){
 		moveSpeed = .5f;
 		platform = transform.FindChild ("Platform");

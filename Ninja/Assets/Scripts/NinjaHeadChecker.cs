@@ -33,12 +33,6 @@ public class NinjaHeadChecker : MonoBehaviour {
 			otherNinja = col.transform.parent.gameObject;
 			otherNinjaScript = otherNinja.GetComponent<NinjaController> ();
 			parentScript.setNinjaOnTop (otherNinjaScript);
-
-			/*
-			Animator otherAnim = otherNinja.GetComponent<Animator> ();
-			otherAnim.SetBool("PressJump", false);
-			otherNinjaScript.setGrounded (true);
-			*/
 		}
 	}
 
@@ -46,11 +40,6 @@ public class NinjaHeadChecker : MonoBehaviour {
 
 		if (otherNinja && col.gameObject.tag == "ninjaFeet") {
 			Debug.Log ("No Ninja on my head...");
-
-			/*
-			otherNinjaScript.setGrounded(false);
-			otherNinjaScript.setJump(false);
-			*/
 
 			// set stuff to null because Ninja is no longer on top
 			otherNinja = null;
