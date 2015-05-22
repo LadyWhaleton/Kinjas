@@ -7,50 +7,41 @@ public class MovingPlatform : MonoBehaviour {
 	public Transform startPlat;
 	public Transform endPlat;
 
-	private Vector3 targetPos;
-	private float resetTime;
-	private float damping;
+	// platform properties
+	private float moveSpeed;
+
+	private Rigidbody2D rb;
+	private Transform destination;
+	private Vector3 direction; // indicates which way the platform should move
+
 	private int currState;	// state indicates where platform will move
 
 	void Awake(){
-		currState = -1;
-		resetTime = 2f;
-		damping = .5f;
+		moveSpeed = .5f;
 		platform = transform.FindChild ("Platform");
 		startPlat = transform.FindChild ("StartPos");
 		endPlat = transform.FindChild ("EndPos");
+		rb = platform.gameObject.GetComponent<Rigidbody2D> ();
 	}
 
 	// Use this for initialization
 	void Start () {
-		changeDirection();
+		setDestination(startPlat);
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		platform.position = Vector3.Lerp(platform.position, targetPos, damping * Time.deltaTime);
+	void FixedUpdate () {
+		//platform.position = Vector3.Lerp(platform.position, targetPos, moveSpeed * Time.deltaTime);
+		rb.MovePosition(platform.position + direction * moveSpeed * Time.fixedDeltaTime);
+
+		if (Vector3.Distance (platform.position, destination.position) < moveSpeed * Time.fixedDeltaTime)
+			setDestination (destination == startPlat ? endPlat : startPlat); 
 	}
 
-	void changeDirection()
-	{
-		switch(currState) {
-		case -1:
-			currState = 0;
-			targetPos = startPlat.position;
-			break;
-		case 0:
-			currState = 1;
-			targetPos = endPlat.position;
-			break;
-		case 1:
-			currState = 0;
-			targetPos = startPlat.position;
-			break;
-		default:
-			Debug.Log ("Error: Invalid moving platform state!");
-			break;
-		}
+	void setDestination (Transform dest) {
+		destination = dest;
+		direction = (destination.position - platform.position).normalized;
 
-		Invoke ("changeDirection", resetTime);
 	}
+
 }
