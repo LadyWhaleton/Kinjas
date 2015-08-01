@@ -16,6 +16,8 @@ public class ResetScript : MonoBehaviour {
 			Application.LoadLevel (Application.loadedLevelName);
 		else if (Input.GetKey ("q")) {
 			Application.LoadLevel ("SimpleMainMenu");
+		} else if (Input.GetKey ("p")) {
+			Application.LoadLevel("test_level_advanced");
 		}
 	
 	}
