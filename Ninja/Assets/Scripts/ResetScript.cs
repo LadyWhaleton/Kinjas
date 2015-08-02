@@ -4,6 +4,7 @@ using System.Collections;
 public class ResetScript : MonoBehaviour {
 
 	private string[] konamiCode;
+	public ScrollController ScrollScript;
 
 	// Use this for initialization
 	void Start () {
