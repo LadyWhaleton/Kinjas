@@ -11,6 +11,7 @@ TagManager:
   - barrel
   - ninjaFeet
   - ninjaHead
+  - one_way_platform
   layers:
   - Default
   - TransparentFX

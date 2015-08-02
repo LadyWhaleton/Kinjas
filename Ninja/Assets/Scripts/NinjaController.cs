@@ -3,8 +3,8 @@ using System.Collections;
 
 public class NinjaController : MonoBehaviour {
 
-	private float Movespeed = 3;
-	private float jumpForce = 300;
+	public float Movespeed = 3;
+	public float jumpForce = 300;
 	
 	private Animator anim;
 	private SpriteRenderer NinjaSprite;
