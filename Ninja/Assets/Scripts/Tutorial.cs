@@ -8,4 +8,9 @@ public class Tutorial : MonoBehaviour {
 	{
 		Application.LoadLevel ("SimpleMainMenu");
 	}
+
+	public void StageOne ()
+	{
+
+	}
 }
