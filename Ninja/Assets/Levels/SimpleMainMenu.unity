@@ -137,7 +137,6 @@ MonoBehaviour:
   m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
-  m_RepeatDelay: .5
   m_AllowActivationOnMobileDevice: 0
 --- !u!114 &190060534
 MonoBehaviour:
@@ -215,6 +214,10 @@ Prefab:
     - target: {fileID: 149116, guid: f8530390e4824204f855a1002227f4ec, type: 2}
       propertyPath: m_Name
       value: Ninja
+      objectReference: {fileID: 0}
+    - target: {fileID: 21271910, guid: f8530390e4824204f855a1002227f4ec, type: 2}
+      propertyPath: m_SortingLayerID
+      value: -1851893197
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11470100, guid: f8530390e4824204f855a1002227f4ec, type: 2}
@@ -441,7 +444,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 4.56376886
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -453,7 +456,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
-  m_StereoMirrorMode: 0
 --- !u!4 &618328455
 Transform:
   m_ObjectHideFlags: 0
@@ -1309,7 +1311,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: -416835779
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: aa4739b394cc92d459c11d437521c405, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
