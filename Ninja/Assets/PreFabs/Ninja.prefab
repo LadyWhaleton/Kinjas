@@ -51,7 +51,7 @@ GameObject:
   - 114: {fileID: 11466968}
   m_Layer: 0
   m_Name: HeadCheck
-  m_TagString: Untagged
+  m_TagString: ninjaHead
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,7 +150,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 112032}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.8499999, y: -.129999995, z: 0}
+  m_LocalPosition: {x: -.834203959, y: -1.33025789, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 423900}
@@ -192,6 +192,7 @@ MeshFilter:
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!50 &5024460
 Rigidbody2D:
+  serializedVersion: 2
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -199,12 +200,12 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
-  m_GravityScale: 1
-  m_FixedAngle: 1
+  m_GravityScale: 2.8499999
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!61 &6164886
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -576,6 +577,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388c34717a37c034f8f9158f93af6560, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Movespeed: 4
+  jumpForce: 500
   facingRight: 1
   NinjaOnTop: {fileID: 0}
 --- !u!212 &21219826
