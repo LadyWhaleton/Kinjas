@@ -21,25 +21,42 @@ public class NinjaGroundChecker : MonoBehaviour {
 		anim = parentObject.GetComponent<Animator> ();
 	}
 
-	void OnTriggerEnter2D(Collider2D col) {
-		// revert Ninja back to idle animation
-			if (checkGround(col)){
-				anim.SetBool ("PressJump", false);
-		}
+	bool checkJumpable(Collider2D col){
+		if (col.gameObject.tag == "ground" || col.gameObject.tag == "one_way_platform" || col.gameObject.tag == "ninjaHead")	
+			return true;
+		return false;
 	}
 
+	void OnTriggerEnter2D(Collider2D col) {
+		// revert Ninja back to idle animation
+<<<<<<< HEAD
+			if (checkGround(col)){
+				anim.SetBool ("PressJump", false);
+=======
+		if (checkJumpable(col)){
+			anim.SetBool ("PressJump", false);
+>>>>>>> master
+		}
+	}
 	void OnTriggerStay2D(Collider2D col) {
 		// set flag for grounded
+<<<<<<< HEAD
 		if (checkGround(col)){
+=======
+		if (checkJumpable(col)) {
+>>>>>>> master
 			parentScript.setGrounded(true);
 			anim.SetBool ("PressJump", false);
 		}
 	}
-
-
+	
 	void OnTriggerExit2D (Collider2D col){
 		// Set flags for Ninja no longer grounded
+<<<<<<< HEAD
 		if (checkGround(col)){
+=======
+		if (checkJumpable(col)) {
+>>>>>>> master
 			parentScript.setJump (false);
 			parentScript.setGrounded (false);
 		}
