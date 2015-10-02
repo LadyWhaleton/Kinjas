@@ -15,10 +15,6 @@ public class CharacterContoller : MonoBehaviour {
 	private bool touchedScroll = false;
 	private bool disableControl = false;
 
-	private float timer= 0;
-
-
-
 	void Awake(){
 		anim = GetComponent<Animator> ();
 	}

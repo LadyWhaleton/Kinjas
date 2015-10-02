@@ -18,19 +18,21 @@ public class ResetScript : MonoBehaviour {
 		else if (Input.GetKey ("q")) {
 			Application.LoadLevel ("SimpleMainMenu");
 		} 
+		/*
 		else if (Input.GetKey ("p")) {
 			Application.LoadLevel("test_level_advanced");
 		}
-		else if (Input.GetKey ("1")){
+		*/
+		else if (Input.GetKey ("1") && Application.loadedLevelName != "Level1"){
 			Application.LoadLevel("Level1");
 		}
-		else if (Input.GetKey ("2")){
+		else if (Input.GetKey ("2") && Application.loadedLevelName != "Level2"){
 			Application.LoadLevel("Level2");
 		}
-		else if (Input.GetKey ("3")){
+		else if (Input.GetKey ("3") && Application.loadedLevelName != "level3"){
 			Application.LoadLevel("level3");
 		}
-		else if (Input.GetKey ("4")){
+		else if (Input.GetKey ("4") && Application.loadedLevelName != "Level4"){
 			Application.LoadLevel("Level4");
 		}
 	
