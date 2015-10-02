@@ -7,17 +7,17 @@ public class Help : MonoBehaviour {
 	void Awake () {
 		this.gameObject.SetActive(false);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	}
 
 	public void HideWindow() {
 		this.gameObject.SetActive(false);
 	}
 	
 	public void ShowWindow() {
-		this.gameObject.SetActive(true);
+		// if Window is already showing, but you click the help button... hide window
+		if (this.gameObject.active)
+			this.gameObject.SetActive (false);
+		else
+			this.gameObject.SetActive(true);
 	}
 
 
