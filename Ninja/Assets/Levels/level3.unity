@@ -130,6 +130,22 @@ Prefab:
       propertyPath: m_Name
       value: Ninja 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5024460, guid: dbc0b21482635f94db5d174c63563737, type: 2}
+      propertyPath: m_GravityScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5024460, guid: dbc0b21482635f94db5d174c63563737, type: 2}
+      propertyPath: m_FixedAngle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485026, guid: dbc0b21482635f94db5d174c63563737, type: 2}
+      propertyPath: jumpForce
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485026, guid: dbc0b21482635f94db5d174c63563737, type: 2}
+      propertyPath: Movespeed
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dbc0b21482635f94db5d174c63563737, type: 2}
   m_IsPrefabParent: 0
@@ -175,6 +191,22 @@ Prefab:
     - target: {fileID: 112032, guid: dbc0b21482635f94db5d174c63563737, type: 2}
       propertyPath: m_Name
       value: Ninja 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5024460, guid: dbc0b21482635f94db5d174c63563737, type: 2}
+      propertyPath: m_GravityScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5024460, guid: dbc0b21482635f94db5d174c63563737, type: 2}
+      propertyPath: m_FixedAngle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485026, guid: dbc0b21482635f94db5d174c63563737, type: 2}
+      propertyPath: jumpForce
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485026, guid: dbc0b21482635f94db5d174c63563737, type: 2}
+      propertyPath: Movespeed
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dbc0b21482635f94db5d174c63563737, type: 2}
@@ -309,6 +341,22 @@ Prefab:
     - target: {fileID: 112032, guid: dbc0b21482635f94db5d174c63563737, type: 2}
       propertyPath: m_Name
       value: Ninja 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5024460, guid: dbc0b21482635f94db5d174c63563737, type: 2}
+      propertyPath: m_GravityScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5024460, guid: dbc0b21482635f94db5d174c63563737, type: 2}
+      propertyPath: m_FixedAngle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485026, guid: dbc0b21482635f94db5d174c63563737, type: 2}
+      propertyPath: Movespeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485026, guid: dbc0b21482635f94db5d174c63563737, type: 2}
+      propertyPath: jumpForce
+      value: 300
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dbc0b21482635f94db5d174c63563737, type: 2}
@@ -597,6 +645,61 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1c34533eb28720e44bfb2a47551fb374, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1703046979
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1703046981}
+  - 68: {fileID: 1703046980}
+  - 114: {fileID: 1703046982}
+  m_Layer: 0
+  m_Name: ObjectDestroyer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!68 &1703046980
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1703046979}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+  - {x: -.5, y: 0}
+  - {x: .5, y: 0}
+--- !u!4 &1703046981
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1703046979}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.54999995, y: -7.44000006, z: 6.75}
+  m_LocalScale: {x: 39.7312698, y: .212499261, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+--- !u!114 &1703046982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1703046979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab5fecb7b1fed274bbde4939510c5052, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NinjasKilled: 0
 --- !u!1001 &1820487072
 Prefab:
   m_ObjectHideFlags: 0
@@ -634,7 +737,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 492082, guid: dbc0b21482635f94db5d174c63563737, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5024460, guid: dbc0b21482635f94db5d174c63563737, type: 2}
+      propertyPath: m_GravityScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5024460, guid: dbc0b21482635f94db5d174c63563737, type: 2}
+      propertyPath: m_FixedAngle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485026, guid: dbc0b21482635f94db5d174c63563737, type: 2}
+      propertyPath: Movespeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485026, guid: dbc0b21482635f94db5d174c63563737, type: 2}
+      propertyPath: jumpForce
+      value: 300
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dbc0b21482635f94db5d174c63563737, type: 2}
