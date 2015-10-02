@@ -4,7 +4,6 @@ using System.Collections;
 public class GameManager : MonoBehaviour {
 
 	private int levelIndex; // index of the current level
-	private string[] levelList = {"Level1", "Level2", "level3", "Level4"};
 
 	private static GameManager instance;
 	public int points;

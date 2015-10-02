@@ -7,11 +7,6 @@ public class EventHandler : MonoBehaviour {
 	private int winNumber = 4;
 	public bool goNextLevel = false;
 
-
-	// Use this for initialization
-	void Start () {
-	
-	}
 	
 	// Update is called once per frame
 	void Update () {
