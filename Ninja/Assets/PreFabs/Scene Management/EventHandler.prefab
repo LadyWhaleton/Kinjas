@@ -172,6 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EventHandlerObj: {fileID: 172044}
+  NR_Obj: {fileID: 0}
 --- !u!114 &11458254
 MonoBehaviour:
   m_ObjectHideFlags: 1

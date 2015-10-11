@@ -128,7 +128,6 @@ Transform:
   m_RootOrder: 1
 --- !u!50 &5055318
 Rigidbody2D:
-  serializedVersion: 2
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -137,11 +136,11 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 1
+  m_FixedAngle: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!61 &6107712
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -387,6 +386,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388c34717a37c034f8f9158f93af6560, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Movespeed: 3
+  jumpForce: 300
   facingRight: 1
   NinjaOnTop: {fileID: 0}
 --- !u!114 &11441178
